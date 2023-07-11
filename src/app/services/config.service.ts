@@ -3,7 +3,7 @@ import { RouteConfigToken } from './routeConfig.service';
 import { RouteConfig } from './routeConfig';
 
 @Injectable({
-  providedIn: 'any'
+  providedIn: 'root'
 })
 export class ConfigService {
 

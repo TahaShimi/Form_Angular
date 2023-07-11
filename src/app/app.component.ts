@@ -31,15 +31,6 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    //this.route.events.subscribe((event) => console.log(event));
-    
-    this.route.events.pipe(filter((event)=> event instanceof NavigationStart)).subscribe((event)=>{
-      console.log('Navigation Started');
-    });
-    this.route.events.pipe(filter((event)=> event instanceof NavigationEnd)).subscribe((event)=>{
-      console.log('Navigation Ended');
-    });
-    
     this.loggerService?.log('AppComponent');
     this.name.nativeElement.innerText = "Hi THere!";
     this.localStorage.setItem('name', 'Hotel');

@@ -26,6 +26,7 @@ import { HeaderModule } from './header/header.module';
 import { RouteConfigToken } from './services/routeConfig.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GlobalErrorHandler } from './errorhandler.service';
+import { MotelsComponent } from './motels/motels.component';
 
 
 function initFactory(initService: InitService) {
@@ -40,7 +41,8 @@ function initFactory(initService: InitService) {
     NotfoundComponent,
     LoginComponent,
     HoverDirective,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    MotelsComponent
   ],
   imports: [
     BrowserModule,

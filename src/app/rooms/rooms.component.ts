@@ -51,10 +51,7 @@ export class RoomsComponent {
 
   constructor(@SkipSelf() private roomService: RoomsService, private configService: ConfigService) { }
 
-  ngDoCheck(): void {
-    console.log('all changes'); 
-  }
-
+  
   ngOnInit(): void {
     this.roomService.getPhotos().subscribe((event) => {
       switch (event.type){
@@ -81,9 +78,9 @@ export class RoomsComponent {
       error: (err) => console.log(err)
     });
     this.stream.subscribe((data) => console.log(data)); 
-    /* this.roomService.getRooms$.subscribe(rooms => {
+    this.roomService.getRooms$.subscribe(rooms => {
       this.roomList = rooms;
-    }); */
+    });
   }
 
   ngAfterViewInit() {
