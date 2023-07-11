@@ -19,7 +19,6 @@ export class BookingGuard {
     if (component.bookingForm.pristine) {
       return component.bookingForm.pristine;
     }else {
-      debugger
       this._snackBar.open('You have unsaved changes!', 'DISCARD');
       return false;
     }
