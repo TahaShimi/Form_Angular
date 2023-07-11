@@ -1,0 +1,32 @@
+<div>
+   <!--  <app-header></app-header>
+    <app-header></app-header>
+    <app-header></app-header>
+    <div *ngIf="selectedRoom">
+        {{ selectedRoom | json}}
+    </div> -->
+    <div>
+        <button class="btn btn-primary" (click)="addRoom()">Add Room</button>
+    </div>
+    <!-- <div>
+        <button class="btn btn-success" (click)="editRoom()">Edit Room</button>
+    </div>
+    <div>
+        <button class="btn btn-danger" (click)="deleteRoom()">Delete Room</button>
+    </div> -->
+
+    {{ priceFilter | json}}
+    <div>
+        <input type="number" class="form-control" name="" placeholder="Price" [formControl]="priceFilter">
+    </div>
+    <div *ngIf="rooms$ | async as rooms">
+        <app-rooms-list [rooms]="rooms" [price]="priceFilter.value" [title]="title" (selectedRoom)="selectRoom($event)"></app-rooms-list>    
+    </div>
+    <!-- <h1>
+        Number of Rooms: {{ roomsCount$ | async}}
+    </h1> -->
+    <!-- <h1>
+        {{ totalBytes }}
+    </h1> -->
+    <router-outlet></router-outlet>
+</div>
