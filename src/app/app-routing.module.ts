@@ -8,7 +8,7 @@ import { MotelsComponent } from './motels/motels.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'rooms', loadChildren: ()=> import('./rooms/rooms.module').then(m=>m.RoomsModule), canActivate: [loginGuard], canLoad: [loginGuard]},
+  { path: 'rooms', loadChildren: ()=> import('./rooms/rooms.module').then(m=>m.RoomsModule), canActivate: [loginGuard]},
   { path: 'employee', loadChildren: ()=> import('./employee/employee.module').then(m=>m.EmployeeModule), canActivate: [loginGuard]},
   { path: 'booking/:roomid', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) , canActivate: [loginGuard] },
   { path: 'comment', loadChildren: () => import('./comment/comment.module').then(m => m.CommentModule) },
