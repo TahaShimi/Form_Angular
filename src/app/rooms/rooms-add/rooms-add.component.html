@@ -6,16 +6,16 @@
         <input type="text" name="roomType" [(ngModel)]="room.roomType" class="form-control" placeholder="Room Type"
             required>
     </div>
-    <div class="form-group my-2">
-        <input #roomAmenities = "ngModel" type="text" minlength="5" maxlength="20" name="amenities" [(ngModel)]="room.amenities"
-        class="form-control" placeholder="Amenities" required>
+    <!-- <div class="form-group my-2">
+        <input #roomAmenities="ngModel" type="text" minlength="5" maxlength="20" name="amenities"
+            [(ngModel)]="room.amenities" class="form-control" placeholder="Amenities" required>
     </div>
     <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['minlength']">
         Amenities Should be min 5 Chars
     </div>
     <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['required'] && roomAmenities.dirty">
         Please provide Amenitites
-    </div>
+    </div> -->
     <div class="form-group my-2">
         <input type="number" name="price" [(ngModel)]="room.price" class="form-control"
             placeholder="Room Price Per Night" required>
@@ -33,8 +33,8 @@
             placeholder="Checkout Time" required>
     </div>
     <div class="form-group my-2">
-        <input min="1" max="5" type="number" name="rating" [(ngModel)]="room.rating" class="form-control" placeholder="Rating"
-            required>
+        <input min="1" max="5" type="number" name="rating" [(ngModel)]="room.rating" class="form-control"
+            placeholder="Rating" required>
     </div>
     <div>
         <button [disabled]="roomsForm.invalid" type="submit" class="btn btn-primary">
@@ -42,3 +42,66 @@
         </button>
     </div>
 </form>
+
+<div class="form w-50 m-auto" (ngSubmit)="AddRoom(roomsForm)">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-text-box [(ngModel)]="room.roomType" [inputAttr]="{ 'aria-label': 'roomType' }" placeholder="Room Type"
+                [showClearButton]="true" required>
+            </dx-text-box>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-text-box #roomAmenities="ngModel" minlength="5" maxlength="20" [(ngModel)]="room.amenities"
+                placeholder="Amenities" [showClearButton]="true" [inputAttr]="{ 'aria-label': 'Amenities' }" required>
+            </dx-text-box>
+        </div>
+        <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['minlength']">
+            Amenities Should be min 5 Chars
+        </div>
+        <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['required'] && roomAmenities.dirty">
+            Please provide Amenitites
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-number-box [inputAttr]="{ 'aria-label': 'price' }" [showClearButton]="true" type="number"
+                [(ngModel)]="room.price" placeholder="Room Price Per Night" required>
+            </dx-number-box>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-text-box [(ngModel)]="room.photos" class="form-control" placeholder="Room Photos"
+                [showClearButton]="true" [inputAttr]="{ 'aria-label': 'photos' }" required>
+            </dx-text-box>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-date-box [(ngModel)]="room.checkinTime" placeholder="Checkin Time" required pickerType="rollers"
+                [inputAttr]="{ 'aria-label': 'checkinTime' }">
+            </dx-date-box>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-date-box [(ngModel)]="room.checkoutTime" placeholder="Checkout Time" required pickerType="rollers"
+                [inputAttr]="{ 'aria-label': 'checkoutTime' }">
+            </dx-date-box>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <dx-number-box [inputAttr]="{ 'aria-label': 'rating' }" [showClearButton]="true" [min]="1" [max]= "5" [(ngModel)]="room.rating"
+            placeholder="Rating" required>
+            </dx-number-box>
+        </div>
+    </div>
+    <div>
+        <button [disabled]="roomsForm.invalid" type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </div>
+</div>

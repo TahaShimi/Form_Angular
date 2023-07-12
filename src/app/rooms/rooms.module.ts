@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
 import { RouteConfigToken } from '../services/routeConfig.service';
 import { FilterPipe } from './filter.pipe';
+import { DxBulletModule, DxButtonModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxTemplateModule, DxTextBoxModule } from 'devextreme-angular';
 
 
 @NgModule({
@@ -26,6 +27,13 @@ import { FilterPipe } from './filter.pipe';
     FormsModule,
     HeaderModule,
     ReactiveFormsModule,
+    DxDataGridModule,
+    DxTemplateModule,
+    DxBulletModule,
+    DxButtonModule,
+    DxTextBoxModule,
+    DxNumberBoxModule,
+    DxDateBoxModule
   ],
   providers: [
     {

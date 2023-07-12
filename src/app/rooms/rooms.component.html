@@ -15,9 +15,9 @@
         <button class="btn btn-danger" (click)="deleteRoom()">Delete Room</button>
     </div> -->
 
-    <div>
+    <!-- <div>
         <input type="number" class="form-control" name="" placeholder="Price" [formControl]="priceFilter">
-    </div>
+    </div> -->
     <div *ngIf="rooms$ | async as rooms">
         <app-rooms-list [rooms]="rooms" [price]="priceFilter.value" [title]="title" (selectedRoom)="selectRoom($event)"></app-rooms-list>    
     </div>

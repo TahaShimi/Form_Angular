@@ -1,4 +1,4 @@
-import { Component, QueryList, SkipSelf, ViewChild, ViewChildren } from '@angular/core';
+import { Component, QueryList, Self, SkipSelf, ViewChild, ViewChildren } from '@angular/core';
 import { RoomList } from './rooms';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from './services/rooms.service';
@@ -11,7 +11,8 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
-  styleUrls: ['./rooms.component.scss']
+  styleUrls: ['./rooms.component.scss'],
+  providers: [RoomsService]
 })
 export class RoomsComponent {
 

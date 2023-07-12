@@ -1,11 +1,29 @@
 <form class="w-50 m-auto">
-    <div class="form-group my-2">
-        <input #emailControl="ngModel" appEmailValidator  type="email" name="email" [(ngModel)]="email" class="form-control" placeholder="Entter Your Email">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+                <dx-text-box #emailControl="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="email" appEmailValidator mode="email" [inputAttr]="{ 'aria-label': 'email' }" placeholder="Entter Your Email"></dx-text-box>
+        </div>
+        <div class="dx-field">
+                <dx-text-box  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" mode="password" [inputAttr]="{ 'aria-label': 'password' }" placeholder="Entter Your Password"></dx-text-box>
+        </div>
+    </div>
+   <!--  <div class="form-group my-2">
+        <input #emailControl="ngModel" appEmailValidator type="email" name="email" [(ngModel)]="email"
+            class="form-control" placeholder="Entter Your Email">
     </div>
     <div class="form-group my-2">
-        <input  type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Entter Your Password">
-    </div>
+        <input type="password" name="password" [(ngModel)]="password" class="form-control"
+            placeholder="Entter Your Password">
+    </div>-->
     <div class="text-center my-2">
-        <button class="btn btn-primary w-50 m-auto" (click)="Login()">Login</button>
+        <dx-button
+            stylingMode="contained"
+            text="Login"
+            type="default"
+            [width]="150"
+            (onClick)="Login()"
+          >
+          </dx-button>
+        <!-- <button class="btn btn-primary w-50 m-auto" (click)="Login()">Login</button> -->
     </div>
 </form>

@@ -27,6 +27,7 @@ import { RouteConfigToken } from './services/routeConfig.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GlobalErrorHandler } from './errorhandler.service';
 import { MotelsComponent } from './motels/motels.component';
+import { DxBulletModule, DxButtonModule, DxDataGridModule, DxTemplateModule, DxTextBoxModule } from 'devextreme-angular';
 
 
 function initFactory(initService: InitService) {
@@ -58,6 +59,11 @@ function initFactory(initService: InitService) {
     FormsModule,
     HeaderModule,
     MatSnackBarModule,
+    DxTextBoxModule,
+    DxButtonModule,
+    DxDataGridModule,
+    DxTemplateModule,
+    DxBulletModule
   ],
   providers: [
     {

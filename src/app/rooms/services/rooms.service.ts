@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { shareReplay } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class RoomsService {
   roomList : RoomList [] = [
@@ -21,7 +21,6 @@ export class RoomsService {
    }
 
   getRooms() {
-    console.log(this.http.get<RoomList[]>('/api/rooms'));
     return this.http.get<RoomList[]>('/api/rooms');
   }
 
