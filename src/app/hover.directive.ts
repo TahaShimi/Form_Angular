@@ -12,10 +12,10 @@ export class HoverDirective {
   }
 
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     //this.element.nativeElement.style.backgroundColor = this.color;
     this.renderer.setStyle(
       this.element.nativeElement, 'backgroundColor', this.appHover
     );
-  }
+  } 
 }

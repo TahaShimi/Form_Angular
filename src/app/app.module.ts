@@ -27,7 +27,7 @@ import { RouteConfigToken } from './services/routeConfig.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GlobalErrorHandler } from './errorhandler.service';
 import { MotelsComponent } from './motels/motels.component';
-import { DxBulletModule, DxButtonModule, DxDataGridModule, DxTemplateModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxBulletModule, DxButtonModule, DxDataGridModule, DxFormModule, DxTemplateModule, DxTextBoxModule, DxValidationSummaryModule, DxValidatorComponent, DxValidatorModule } from 'devextreme-angular';
 
 
 function initFactory(initService: InitService) {
@@ -43,7 +43,7 @@ function initFactory(initService: InitService) {
     LoginComponent,
     HoverDirective,
     EmailValidatorDirective,
-    MotelsComponent
+    MotelsComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +63,10 @@ function initFactory(initService: InitService) {
     DxButtonModule,
     DxDataGridModule,
     DxTemplateModule,
-    DxBulletModule
+    DxBulletModule,
+    DxFormModule,
+    DxValidatorModule,
+    DxValidationSummaryModule,
   ],
   providers: [
     {

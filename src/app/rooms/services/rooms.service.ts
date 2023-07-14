@@ -6,9 +6,10 @@ import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { shareReplay } from 'rxjs';
 
 @Injectable({
-  providedIn: 'any'
+  providedIn: 'root'
 })
 export class RoomsService {
+  
   roomList : RoomList [] = [
   ];
   //headers = new HttpHeaders({'Token' : '123456789'})

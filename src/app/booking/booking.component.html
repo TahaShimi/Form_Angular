@@ -3,9 +3,9 @@
 {{ bookingForm.value | json}}
 {{ bookingForm.pristine | json}}
 {{ bookingForm.dirty | json}}
- -->
+ 
 {{bookingForm.valid | json}}
-{{bookingForm.invalid | json}}
+{{bookingForm.invalid | json}}-->
 <form class="example-form " [formGroup]="bookingForm" (ngSubmit)="addBooking()">
     <mat-form-field *ngIf="bookingForm.get('Passport')" class="example-full-width">
         <mat-label>Passport Number</mat-label>

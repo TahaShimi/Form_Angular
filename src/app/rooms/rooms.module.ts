@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
 import { RouteConfigToken } from '../services/routeConfig.service';
 import { FilterPipe } from './filter.pipe';
-import { DxBulletModule, DxButtonModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxTemplateModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxBulletModule, DxButtonModule, DxDataGridModule, DxDateBoxModule, DxFilterBuilderModule, DxNumberBoxModule, DxTemplateModule, DxTextBoxModule, DxValidationSummaryModule, DxValidatorModule } from 'devextreme-angular';
 
 
 @NgModule({
@@ -33,12 +33,15 @@ import { DxBulletModule, DxButtonModule, DxDataGridModule, DxDateBoxModule, DxNu
     DxButtonModule,
     DxTextBoxModule,
     DxNumberBoxModule,
-    DxDateBoxModule
+    DxDateBoxModule,
+    DxFilterBuilderModule,
+    DxValidatorModule,
+    DxValidationSummaryModule,
   ],
   providers: [
     {
       provide: RouteConfigToken,
-      useValue: {title: 'Rooms'},
+      useValue: { title: 'Rooms' },
     },
   ]
 })
