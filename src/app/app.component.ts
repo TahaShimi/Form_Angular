@@ -4,7 +4,8 @@ import { LocalStorageToken } from './localstorage.token';
 import { InitService } from './init.service';
 import { ConfigService } from './services/config.service';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Observable, filter } from 'rxjs';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
   title = 'TestApp';
 
   role = "Admin";
+
 
   /* @ViewChild('user', { read: ViewContainerRef }) vcr!: ViewContainerRef;
 

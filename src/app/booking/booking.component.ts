@@ -23,8 +23,11 @@ export class BookingComponent {
 
   ngOnInit(): void {
     const roomId = this.route.snapshot.paramMap.get('roomid');
+    const roomType = this.route.snapshot.paramMap.get('roomType');
+    console.log(roomType);
     this.bookingForm = this.fb.group({
       roomId: new FormControl({value: roomId, disabled: true}, {validators: [Validators.required]}),
+      roomType: new FormControl({value: roomType, disabled: true}, {validators: [Validators.required]}),
       guestEmail: ['', { updateOn: 'blur', validators: [Validators.required, Validators.email] }],
       checkinDate: [''],
       checkoutDate: [''],
@@ -46,7 +49,7 @@ export class BookingComponent {
       ]),
       tnc: new FormControl(false, { validators: [Validators.requiredTrue] })
     }, { updateOn: 'blur', validators: [CustomValidators.ValidateDate] })
-    this.getBookingData();
+    console.log(this.getBookingData());
     /* this.bookingForm.valueChanges.subscribe((data) => {
       this.bookingService.bookRoom(this.bookingForm.getRawValue()).subscribe((data) => {})
     }) */

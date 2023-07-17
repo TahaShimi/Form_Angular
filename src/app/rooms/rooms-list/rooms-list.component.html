@@ -35,7 +35,7 @@
     </table> -->
 
     <dx-data-grid id="gridContainer" [dataSource]="rooms" [remoteOperations]="false" [allowColumnReordering]="true"
-        [rowAlternationEnabled]="true" [showBorders]="true" [filterValue]="filterValue">
+        [rowAlternationEnabled]="true" [showBorders]="true" [filterValue]="filterValue" [columnHidingEnabled]="true">
         <dxo-filter-panel [visible]="true"></dxo-filter-panel>
         <dxo-paging [pageSize]="10"></dxo-paging>
         <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 25, 50, 100]"></dxo-pager>
@@ -46,15 +46,15 @@
         <dxo-group-panel [visible]="true"></dxo-group-panel>
         <dxo-grouping [autoExpandAll]="false"></dxo-grouping>
 
-        <dxi-column dataField="roomNumber" caption="RoomNumber" dataType="number" alignment="left"></dxi-column>
-        <dxi-column dataField="roomType" caption="Room Type" dataType="string" alignment="left"></dxi-column>
-        <dxi-column dataField="price" caption="Price" dataType="number" format="currency" alignment="left"></dxi-column>
+        <dxi-column dataField="roomNumber" caption="RoomNumber" dataType="number" alignment="center" [width]="150"></dxi-column>
+        <dxi-column dataField="roomType" caption="Room Type" dataType="string" alignment="left" [width]="250"></dxi-column>
+        <dxi-column dataField="price" caption="Price" dataType="number" format="currency" alignment="center" [width]="150"></dxi-column>
         <dxi-column dataField="amenities" caption="Amenities" dataType="string" alignment="left"></dxi-column>
-        <dxi-column dataField="checkinTime" caption="Checkin Time" dataType="date" alignment="left"></dxi-column>
-        <dxi-column caption="Action" cellTemplate="rooms" alignment="center"></dxi-column>
+        <dxi-column dataField="checkinTime" caption="Checkin Time" dataType="date" alignment="center" [width]="150"></dxi-column>
+        <dxi-column caption="Action" cellTemplate="rooms" alignment="center" [width]="200"></dxi-column>
 
         <div *dxTemplate="let r of 'rooms'">
-            <dx-button type="default" [routerLink]="['/booking', r.data.roomNumber]" text="Book Room">
+            <dx-button type="default" [routerLink]="['/booking', r.data.roomNumber, r.data.roomType]" text="Book Room">
             </dx-button>
         </div>
 
