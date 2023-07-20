@@ -28,6 +28,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GlobalErrorHandler } from './errorhandler.service';
 import { MotelsComponent } from './motels/motels.component';
 import { DxBulletModule, DxButtonModule, DxDataGridModule, DxFormModule, DxTemplateModule, DxTextBoxModule, DxValidationSummaryModule, DxValidatorComponent, DxValidatorModule } from 'devextreme-angular';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 function initFactory(initService: InitService) {
@@ -67,6 +68,7 @@ function initFactory(initService: InitService) {
     DxFormModule,
     DxValidatorModule,
     DxValidationSummaryModule,
+    FlexLayoutModule
   ],
   providers: [
     {

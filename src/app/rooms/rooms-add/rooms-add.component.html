@@ -1,117 +1,125 @@
-<div *ngIf="sucessMessage !== ''" class="alert alert-success">
-    {{sucessMessage}}
+<div fxLayout="row" fxLayout.xs="column">
+    <div *ngIf="sucessMessage !== ''" class="alert alert-success">
+        {{sucessMessage}}
+    </div>
+    <!-- <form #roomsForm="ngForm" class="w-50 m-auto" (ngSubmit)="AddRoom(roomsForm)">
+        <div class="form-group my-2">
+            <input type="text" name="roomType" [(ngModel)]="room.roomType" class="form-control" placeholder="Room Type"
+                required>
+        </div>
+        <div class="form-group my-2">
+            <input #roomAmenities="ngModel" type="text" minlength="5" maxlength="20" name="amenities"
+                [(ngModel)]="room.amenities" class="form-control" placeholder="Amenities" required>
+        </div>
+        <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['minlength']">
+            Amenities Should be min 5 Chars
+        </div>
+        <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['required'] && roomAmenities.dirty">
+            Please provide Amenitites
+        </div>
+        <div class="form-group my-2">
+            <input type="number" name="price" [(ngModel)]="room.price" class="form-control"
+                placeholder="Room Price Per Night" required>
+        </div>
+        <div class="form-group my-2">
+            <input type="text" name="photos" [(ngModel)]="room.photos" class="form-control" placeholder="Room Photos"
+                required>
+        </div>
+        <div class="form-group my-2">
+            <input type="date" name="checkinTime" [(ngModel)]="room.checkinTime" class="form-control"
+                placeholder="Checkin Time" required>
+        </div>
+        <div class="form-group my-2">
+            <input type="date" name="checkoutTime" [(ngModel)]="room.checkoutTime" class="form-control"
+                placeholder="Checkout Time" required>
+        </div>
+        <div class="form-group my-2">
+            <input min="1" max="5" type="number" name="rating" [(ngModel)]="room.rating" class="form-control"
+                placeholder="Rating" required>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+        </div>
+    </form> -->
+    
+    <form class="form m-auto" (submit)="AddRoom($event)">
+        <div class="dx-fieldset">
+            <div class="dx-field" fxFlex="50">
+                <dx-text-box [(value)]="roomType" [inputAttr]="{ 'aria-label': 'roomType' }" placeholder="Room Type"
+                    [showClearButton]="true">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Room Type is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-text-box minlength="5" maxlength="20" [(value)]="amenities" placeholder="Amenities"
+                    [showClearButton]="true" [inputAttr]="{ 'aria-label': 'Amenities' }">
+                    <div class="alert alert-danger">
+                        Amenities Should be min 5 Chars
+                    </div>
+                    <div class="alert alert-danger" >
+                        Please provide Amenitites
+                    </div>
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Amenities is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-number-box [inputAttr]="{ 'aria-label': 'price' }" [showClearButton]="true" type="number"
+                    [(value)]="price" placeholder="Room Price Per Night">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Room Price is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-number-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-text-box [(value)]="photo" placeholder="Room Photos" [showClearButton]="true"
+                    [inputAttr]="{ 'aria-label': 'photos' }">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Room Photo Link is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-date-box [value]="checkinTime" placeholder="Checkin Time" pickerType="rollers"
+                    [inputAttr]="{ 'aria-label': 'checkinTime' }" [showClearButton]="true">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Checkin Time is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-date-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-date-box [value]="checkoutTime" placeholder="Checkout Time" required pickerType="rollers"
+                    [inputAttr]="{ 'aria-label': 'checkoutTime' }" [showClearButton]="true">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Checkout Time is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-date-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-number-box [inputAttr]="{ 'aria-label': 'rating' }" [showClearButton]="true" [min]="1" [max]="5"
+                    [(value)]="rating" placeholder="Rating">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Rating is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-number-box>
+            </div>
+            <div class="dx-field" fxFlex="50">
+                <dx-validation-summary id="summary" class="mb-3"></dx-validation-summary>
+                <dx-button stylingMode="contained" text="Add Room" type="default" [width]="150" [useSubmitBehavior]="true">
+                </dx-button>
+            </div>
+        </div>
+    </form>
 </div>
-<!-- <form #roomsForm="ngForm" class="w-50 m-auto" (ngSubmit)="AddRoom(roomsForm)">
-    <div class="form-group my-2">
-        <input type="text" name="roomType" [(ngModel)]="room.roomType" class="form-control" placeholder="Room Type"
-            required>
-    </div>
-    <div class="form-group my-2">
-        <input #roomAmenities="ngModel" type="text" minlength="5" maxlength="20" name="amenities"
-            [(ngModel)]="room.amenities" class="form-control" placeholder="Amenities" required>
-    </div>
-    <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['minlength']">
-        Amenities Should be min 5 Chars
-    </div>
-    <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['required'] && roomAmenities.dirty">
-        Please provide Amenitites
-    </div>
-    <div class="form-group my-2">
-        <input type="number" name="price" [(ngModel)]="room.price" class="form-control"
-            placeholder="Room Price Per Night" required>
-    </div>
-    <div class="form-group my-2">
-        <input type="text" name="photos" [(ngModel)]="room.photos" class="form-control" placeholder="Room Photos"
-            required>
-    </div>
-    <div class="form-group my-2">
-        <input type="date" name="checkinTime" [(ngModel)]="room.checkinTime" class="form-control"
-            placeholder="Checkin Time" required>
-    </div>
-    <div class="form-group my-2">
-        <input type="date" name="checkoutTime" [(ngModel)]="room.checkoutTime" class="form-control"
-            placeholder="Checkout Time" required>
-    </div>
-    <div class="form-group my-2">
-        <input min="1" max="5" type="number" name="rating" [(ngModel)]="room.rating" class="form-control"
-            placeholder="Rating" required>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary">
-            Submit
-        </button>
-    </div>
-</form> -->
-
-<form class="form w-50 m-auto" (submit)="AddRoom($event)">
-    <div class="dx-fieldset">
-        <div class="dx-field">
-            <dx-text-box [(value)]="roomType" [inputAttr]="{ 'aria-label': 'roomType' }" placeholder="Room Type"
-                [showClearButton]="true">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Room Type is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
-        </div>
-        <div class="dx-field">
-            <dx-text-box minlength="5" maxlength="20" [(value)]="amenities" placeholder="Amenities"
-                [showClearButton]="true" [inputAttr]="{ 'aria-label': 'Amenities' }">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Amenities is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
-        </div>
-        <div class="dx-field">
-            <dx-number-box [inputAttr]="{ 'aria-label': 'price' }" [showClearButton]="true" type="number"
-                [(value)]="price" placeholder="Room Price Per Night">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Room Price is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-number-box>
-        </div>
-        <div class="dx-field">
-            <dx-text-box [(value)]="photo" placeholder="Room Photos" [showClearButton]="true"
-                [inputAttr]="{ 'aria-label': 'photos' }">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Room Photo Link is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-text-box>
-        </div>
-        <div class="dx-field">
-            <dx-date-box [value]="checkinTime" placeholder="Checkin Time" pickerType="rollers"
-                [inputAttr]="{ 'aria-label': 'checkinTime' }" [showClearButton]="true">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Checkin Time is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-date-box>
-        </div>
-        <div class="dx-field">
-            <dx-date-box [value]="checkoutTime" placeholder="Checkout Time" required pickerType="rollers"
-                [inputAttr]="{ 'aria-label': 'checkoutTime' }" [showClearButton]="true">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Checkout Time is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-date-box>
-        </div>
-        <div class="dx-field">
-            <dx-number-box [inputAttr]="{ 'aria-label': 'rating' }" [showClearButton]="true" [min]="1" [max]="5"
-                [(value)]="rating" placeholder="Rating">
-                <dx-validator>
-                    <dxi-validation-rule type="required" message="Rating is required">
-                    </dxi-validation-rule>
-                </dx-validator>
-            </dx-number-box>
-        </div>
-        <div class="dx-field">
-            <dx-validation-summary id="summary" class="mb-3"></dx-validation-summary>
-            <dx-button stylingMode="contained" text="Add Room" type="default" [width]="150" [useSubmitBehavior]="true">
-            </dx-button>
-        </div>
-    </div>
-</form>

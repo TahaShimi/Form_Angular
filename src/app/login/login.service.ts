@@ -19,7 +19,7 @@ export class LoginService {
   constructor() { }
 
   login(email: string, passord: string){
-    if (email === 'shimitaha3@gmail.com' && passord ==='admin1234') {
+    if (email === 'a@a.com' && passord ==='1234') {
       this.isLoggedIn = true;
       this.isAdmin = true;
       this.loggedIn.next(true);
